@@ -1,6 +1,8 @@
 # 🌐 Quetzi Hack - Landing Page
 
-Landing page oficial de **Quetzi Hack**, un espacio para mis crsos de programación desde cero.  
+http://quetzihack.vercel.app/
+
+Landing page oficial de **Quetzi Hack**, un espacio para mis cursos de programación desde cero.  
 Este proyecto está desarrollado en **HTML, CSS y JavaScript puro**, inspirado en un diseño simple con fondo oscuro, resaltando tonos **azules y verdes**.
 
 ---

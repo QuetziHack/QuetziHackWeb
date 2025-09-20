@@ -1,0 +1,232 @@
+Temario:
+
+	Fundamentos de programación y algoritmos:
+
+		Presentación del curso			
+		Comprendiendo la programación
+		Teoría de la computación
+		Introducción a la ing de software (cómo funciona una computadora)
+        	Fundamentos de Sistemas Operativos
+			-Windows
+				+MS-dos
+			-Unix
+				+Linux
+				+Mac OS, XOs
+				
+		Conociendo la consola
+			-Comandos básicos del Sistema
+			-Consola de Unix
+			
+			- CTF model bandit
+				+ lvl 1-4 
+				+ lvl 6-8
+				+ lvl 9-13
+
+		Python:
+			
+			Salidas (visualiación en pantalla)		
+			Variables
+			Operadores
+			Entradas
+
+			Diagramas de Flujo
+			
+			Funciones I (Funciones Básicas)
+			
+			Estrucutras de control
+				-if
+					+anidado
+					+concatenado
+				-switch case / equivalente
+				
+        		        -lógica formal
+					+lógica proposicional
+
+				-palabras reservadas lógicas
+				-Algoritmos I 
+			
+			Ciclos I
+				- while
+				- Matemáticas formales
+					+ 12 Propiedades de los números reales
+					+ indivisibilidad del 0 por reduc al absurd
+					+ irracionalidad de raíz de 2
+					+ demostración de la chicharronera (Bashkara)	
+			
+				- Algoritmos II
+
+			Funciones II
+				-Parámetros
+					+Paso por valor
+					+Paso por referencia
+
+				-Retornos
+				-Recursividad
+
+			Colecciones de datos:
+				-Listas
+				-Tuplas
+				-Diccionarios
+				-Sets
+			
+			Ciclos II
+				-for
+				-Algoritmos III
+
+			Ficheros:
+				-Lectura
+				-Escritura
+				
+			Notación asintótica
+				-Logaritmico
+				-Lineal
+				-Cuadrático
+				-Polinómico
+				-Exponencial
+
+				-Big O 
+				-Big Omega
+				-Big Theta
+
+		C/C++:
+
+			C++ y SO
+			Basics
+			Variables y memoria 
+			
+			Referencias
+			Punteros y memoria (aquí vemos invasión de memoria)		
+			Funciones
+				-paso por valor
+				-paso por referencia
+			
+			Algoritmos IV
+			
+			Arreglos y memoria
+				-Arreglos simples (mono dimensionales)
+
+				-Arreglos Bidimensionales
+				-Vectores
+				
+				-Algoritmos V
+			
+			Estructuras
+			Uniones
+			Enum (Op Obs)
+			Algoritmos VI
+		
+		Repaso:
+			examen para la constancia I
+			
+
+	Programación Orientada a Objetos:
+		
+		Teoría:
+
+			Historia de la POO
+			Clases Métodos y atributos			
+			Características de la POO			
+			Abstracción
+			Diagramas de Clases (UML)
+
+		C++ :
+		
+		Memoria dinámica:
+		    
+		    Palabra reservada "new"
+		    Palabra reservada "delete"
+		  
+		    Arreglos dinámicos
+		    Vectores
+
+		    Algoritmos V
+		    
+		Abstracción:
+			
+			Clases y Objetos
+			    
+			Variables miembro (atributos)
+			Funciones miembro (métodos)
+			    
+			Constructores
+			    -Por defecto
+			    -Parametrizados
+			    
+			Destructores
+			    
+			Algoritmos VI
+			Diagrama de clases(UML) I
+			    
+		Encapsulamiento:
+		    
+		    Modificadores de acceso
+		    	-Public
+		        -Private (aquí aprendemos que la seguridad de C++ vale pa...)
+		            +Getters
+		            +Setters
+		        
+			Punteros a Objetos
+			Puntero this
+			
+			Sobrecarga 
+				-Funciones
+				-Contructores
+				-Operadores
+                    			+ Uso general
+					+ Entradas y Salidas
+					
+			Algoritmos VII
+			Diagrama de clases(UML) II
+	
+		Herencia:
+		
+			Simple
+			    	-Modificador de acceso "Protected"
+			    	-Constructores
+                		-Indirecta
+
+			Multiple
+                		-Indirecta
+
+			Amistad
+			    -Métodos amigos
+			    -Clases amigas
+
+			Algoritmos VIII
+            		Diagrama de clases(UML) III
+
+		Polimorfismo:
+
+            		Palabra reservada "virtual"
+
+			Arreglos de Objetos
+				-Monodimensional
+				-Multidimensional
+				-Palabra reservada "static"
+
+			Clases abstractas	
+		        -Clases virtuales abstractas 		    
+				    -Interfaces
+				   
+				Templates (Generalización)
+
+		Python:
+			-Clases
+			-Abstraccion
+			-Encapsulamiento
+			-Herencia
+				+Simple
+				+Múltpile
+			
+			-Polimorfismo
+			
+
+	Estructuras de datos: (Temario Dinámico, podríamos ver algo diferente que le sirva más al grupo)
+		
+		Listas (LSE, LDE, LCSE, LCDE, pilas, colas)
+		Algoritmos sobre listas
+		Árboles
+		Algoritmos sobre Árboles
+		Teoría de grafos
+		Grafos
+		Algoritmos sobre grafos

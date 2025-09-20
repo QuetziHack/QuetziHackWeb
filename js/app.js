@@ -1,2 +1,12 @@
-function joinGroup(){ window.open('https://api.whatsapp.com/send?phone=5215560318196&text=Hola%20buenas%20%F0%9F%91%8B%0AEstoy%20interesado%20en%20las%20clases%20de%20Programaci%C3%B3n%20Orientada%20a%20Objetos%2C%20cuando%20abres%20grupo%20nuevo%3F%3F%3F', '_blank'); }
-function joinChatP0(){ window.open('https://api.whatsapp.com/send?phone=5215560318196&text=Hola%2C%20me%20interesa%20el%20curso%20de%20programaci%C3%B3n%20desde%200%2C%20me%20puedes%20dar%20info%20xfa%3F%3F%3F', '_blank'); }
+function joinGroup() {
+  window.open(
+    "https://api.whatsapp.com/send?phone=5215560318196&text=Hola%20buenas%20%F0%9F%91%8B%0AEstoy%20interesado%20en%20las%20clases%20de%20Programaci%C3%B3n%20Orientada%20a%20Objetos%2C%20cuando%20abres%20grupo%20nuevo%3F%3F%3F",
+    "_blank"
+  );
+}
+function joinChatP0() {
+  window.open(
+    "https://api.whatsapp.com/send?phone=5215560318196&text=Hola%2C%20me%20interesa%20el%20curso%20de%20programaci%C3%B3n%20desde%200%2C%20me%20puedes%20dar%20info%20xfa%3F%3F%3F",
+    "_blank"
+  );
+}
