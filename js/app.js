@@ -5,8 +5,5 @@ function joinGroup() {
   );
 }
 function joinChatP0() {
-  window.open(
-    "https://api.whatsapp.com/send?phone=5215560318196&text=Hola%2C%20me%20interesa%20el%20curso%20de%20programaci%C3%B3n%20desde%200%2C%20me%20puedes%20dar%20info%20xfa%3F%3F%3F",
-    "_blank"
-  );
+  window.location.href = "https://www.ejemplo.com";
 }
