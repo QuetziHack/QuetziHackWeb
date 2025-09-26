@@ -1,3 +1,56 @@
+.info-precio {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 2rem;
+}
+.precio-base {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.precio-base-cifra {
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+.promo-descuentos {
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+}
+.promo-estudiante {
+  background: #e2f8ff;
+  color: #1a72a5;
+  padding: 0.15em 0.5em;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.2em;
+}
+.promo-puntual {
+  background: #e2f7ff;
+  color: #26a69a;
+  padding: 0.15em 0.5em;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+.precio-final {
+  margin-top: 0.7rem;
+}
+.precio-final-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.precio-final-cifra {
+  font-weight: bold;
+  color: var(--green);
+  font-size: 1.5rem;
+  background: #e2ffe2;
+  border-radius: 8px;
+  padding: 0.2em 0.7em;
+  margin-top: 0.2em;
+  display: inline-block;
+}
 :root {
   --green: #1aa582;
   --teal: #26a69a;
