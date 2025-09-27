@@ -39,7 +39,7 @@ quetzi-hack-landing/
 Este proyecto es de uso educativo. Puedes modificarlo y adaptarlo libremente.
 Si lo compartes, agradecemos la mención a **Quetzi Hack** 💚.
 
-```
+
 
 
 
