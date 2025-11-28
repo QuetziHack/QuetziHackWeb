@@ -1,3 +1,293 @@
+:root {
+  --green: #2ecc71;
+  --navy: #2c3e50;
+  --teal: #1abc9c;
+  --blue: #3498db;
+  --light-gray: #ecf0f1;
+  --white: #ffffff;
+  --bg: #fff;
+  --accent: var(--teal);
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-gray);
+  color: var(--navy);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header/Hero Section */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 4rem 1rem 6rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Nuevo fondo para Hero de POO --- */
+.hero.navy-bg {
+  background: linear-gradient(135deg, #1c3144 0%, #3a506b 100%);
+}
+/* ------------------------------------- */
+
+.hero.small {
+  padding: 3rem 1rem 4rem;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.btn.primary {
+  background-color: var(--teal);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.4);
+}
+
+.btn.primary:hover {
+  background-color: #16a085;
+  box-shadow: 0 6px 16px rgba(26, 188, 156, 0.5);
+}
+
+.btn.outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn.outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* Bento Grid and Cards */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10, 20, 30, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(10, 20, 30, 0.12);
+}
+
+.card-top {
+  padding: 1rem 1.5rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.card-top.green {
+  background-color: var(--green);
+}
+
+.card-top.navy {
+  background-color: var(--navy);
+}
+
+.card-top.teal {
+  background-color: var(--teal);
+}
+
+.card-top.light {
+  background-color: var(--blue);
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.card-top h3 a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.card-body p {
+  margin: 0;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--navy);
+}
+
+.card-body ul li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(44, 62, 80, 0.05);
+}
+.card-body ul li:last-child {
+  border-bottom: none;
+}
+
+/* Style for POO card specifically in index */
+.card-top.poo-bg {
+  background-color: var(--navy); /* Usando el nuevo fondo para que se vea más oscuro y distintivo */
+}
+
+.whatsapp .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.site-footer {
+  padding: 1.25rem;
+  text-align: center;
+  color: #7a8b8b;
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* listas and cards in info */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.list-card {
+  background: var(--bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(10, 20, 30, 0.05);
+  color: var(--navy);
+}
+.list-card h3 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+/* videos grid */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.videos-section h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Info Cards for Course Details */
+
+.temario-section h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-top: 0;
+}
+
+.info-card {
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10, 20, 30, 0.08);
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1; /* Ocupa todo el ancho en el grid */
+  padding: 2rem;
+  text-align: center;
+}
+
+.info-title {
+  color: var(--navy);
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.info-card .card-top {
+  min-height: auto;
+  padding: 1.5rem;
+}
+
+.info-card .card-body {
+  padding: 1.5rem;
+}
+
 .info-precio {
   width: 100%;
   text-align: center;
@@ -42,271 +332,61 @@
   font-weight: 500;
 }
 .precio-final-cifra {
-  font-weight: bold;
+  font-size: 2.5rem;
   color: var(--green);
-  font-size: 1.5rem;
-  background: #e2ffe2;
-  border-radius: 8px;
-  padding: 0.2em 0.7em;
-  margin-top: 0.2em;
-  display: inline-block;
-}
-:root {
-  --green: #1aa582;
-  --teal: #26a69a;
-  --dark: #031927;
-  --navy: #0f2b3a;
-  --bg: #bdb7eb;
-  --accent: #e24b4b;
+  font-weight: 800;
+  display: block;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  background: var(--dark);
-  color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-
-.hero {
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.4)
-  );
-  min-height: 220px;
-  padding: 3.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.hero.small {
-  min-height: 220px;
-  padding: 3.5rem 1rem;
-}
-
-.hero-inner {
-  max-width: 1100px;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  width: 100%;
-}
-
-.logo {
-  width: 160px;
-  height: auto;
-  flex: 0 0 160px;
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.08));
-}
-
-.hero-text h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.5rem 0;
-  color: var(--navy);
-}
-
-.hero-text p {
-  margin: 0 0 1rem 0;
-  color: var(--navy);
-}
-
-.cta-row {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.65rem 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.btn.primary {
-  background: var(--green);
-  color: white;
-}
-.btn.outline {
-  background: transparent;
-  border-color: rgba(0, 0, 0, 0.06);
-  color: var(--navy);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin: 0;
-  color: var(--navy);
-  line-height: 1.5;
-  margin-bottom: 4rem;
-}
-
-.temario-resumen{
-  line-height: 1.5;
-  margin-bottom: 4rem;
-}
-
-/* Card estilo bento */
-.card {
-  background: var(--bg);
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 6px 18px rgba(10, 20, 30, 0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(10, 20, 30, 0.09);
-}
-
-.card-top {
-  /*height: 86px;*/
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  padding: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center
-
-}
-
-/* colores de cada tarjeta */
-.card-top.green {
-  background: var(--green);
-}
-.card-top.navy {
-  background: var(--navy);
-}
-.card-top.teal {
-  background: var(--teal);
-}
-.card-top.light {
-  background: linear-gradient(90deg, var(--green), var(--teal));
-}
-
-.card-body {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-
-}
-
-.card-top h3 {
-  color: white;
-  font-size: 1.25rem;
-}
-.card-body p {
-  margin: 0;
-  color: var(--navy);
-  line-height: 1.5;
-}
-
-.whatsapp .card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.site-footer {
-  padding: 1.25rem;
+.temario-resumen {
   text-align: center;
-  color: #7a8b8b;
-  background: transparent;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* listas and cards in info */
-.card-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.temario-inscripcion-row {
+  display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-.list-card {
-  background: var(--bg);
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(10, 20, 30, 0.05);
-  color: var(--navy);
-}
-.list-card h3 {
-  margin-top: 0;
-  color: var(--navy);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* videos grid */
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.videos-grid iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-  border: 0;
-}
-
-/* responsive */
-@media (max-width: 900px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 4rem;
   }
-  .card-list {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-text h1 {
+    font-size: 2rem;
   }
-  .videos-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-text p {
+    font-size: 1rem;
   }
-}
-
-@media (max-width: 600px) {
-  .hero-inner {
+  .cta-row, .temario-inscripcion-row {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 0.75rem;
+  }
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
   }
   .bento-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .info-card {
+    padding: 1rem;
+  }
+  .info-precio {
+    padding: 1rem;
   }
   .card-list {
     grid-template-columns: 1fr;
   }
   .videos-grid {
     grid-template-columns: 1fr;
-  }
-  .logo {
-    width: 120px;
   }
 }
