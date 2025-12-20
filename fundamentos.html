@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Programación | Quetzi Hack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 255, 65, 0.05) 0%, rgba(10, 10, 12, 1) 50%);
+        }
+
+        .glass-card {
+            background: rgba(22, 22, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { animation: fadeInUp 0.6s ease forwards; }
+
+        .step-number {
+            background: linear-gradient(135deg, #00ff41 0%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navegación -->
+    <nav class="p-6">
+        <a href="index.html" class="text-slate-400 hover:text-green-500 transition-colors flex items-center gap-2 font-bold uppercase tracking-widest text-xs">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Portal
+        </a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <header class="mb-16 reveal">
+            <span class="mono text-green-500 text-sm tracking-widest uppercase mb-2 block">// Nivel Inicial - Equivalente a 1er y 2do Semestre</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Fundamentos de <br><span class="text-green-500">Programación</span></h1>
+            <p class="text-white text-lg max-w-2xl leading-relaxed">
+                Domina las bases de la ingeniería de software utilizando Python. Este curso te llevará desde no saber nada hasta construir tu primer sistema orientado a objetos.
+            </p>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Temario Columna Izquierda -->
+            <div class="lg:col-span-2 space-y-8 reveal">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-list-check text-green-500"></i> Ruta de Aprendizaje (5 Semanas)
+                </h2>
+
+                <!-- Semanas -->
+                <div class="space-y-4">
+                    <div class="glass-card p-6 rounded-2xl hover:border-green-500/30 transition-all group">
+                        <div class="flex gap-6">
+                            <span class="step-number font-bold text-3xl mono opacity-50">01</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Lógica y Algoritmia</h3>
+                                <p class="text-slate-400 text-sm">Entorno de desarrollo, variables, operadores y diagramas de flujo. Las bases del pensamiento computacional.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-green-500/30 transition-all group">
+                        <div class="flex gap-6">
+                            <span class="step-number font-bold text-3xl mono opacity-50">02</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Estructuras y Colecciones</h3>
+                                <p class="text-slate-400 text-sm">Control de flujo (if, loops) y manejo de datos complejos con Listas, Diccionarios y Tuplas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-green-500/30 transition-all group">
+                        <div class="flex gap-6">
+                            <span class="step-number font-bold text-3xl mono opacity-50">03</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Programación Orientada a Objetos</h3>
+                                <p class="text-slate-400 text-sm">Creación de Clases, Objetos y Constructores. Aprende a modelar problemas de la vida real.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-green-500/30 transition-all group">
+                        <div class="flex gap-6">
+                            <span class="step-number font-bold text-3xl mono opacity-50">04</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Herencia y Persistencia</h3>
+                                <p class="text-slate-400 text-sm">Reutilización de código avanzada y manejo de archivos (TXT/CSV) para guardar información real.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border-dashed border-green-500/50">
+                        <div class="flex gap-6">
+                            <span class="step-number font-bold text-3xl mono">05</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Proyecto Final</h3>
+                                <p class="text-slate-400 text-sm">Desarrollo de un software completo bajo el paradigma POO. Evaluación final y entrega de diplomas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles Columna Derecha -->
+            <div class="space-y-6 reveal" style="animation-delay: 0.2s;">
+                <div class="glass-card p-8 rounded-3xl border-green-500/20">
+                    <h3 class="text-xl font-bold text-white mb-6">Inversión y Detalles</h3>
+                    
+                    <!-- Desglose de Costos -->
+                    <div class="space-y-3 mb-8 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <div class="flex justify-between text-slate-400 line-through text-sm">
+                            <span>Precio Regular</span>
+                            <span>$200</span>
+                        </div>
+                        <div class="flex justify-between text-green-400 text-sm font-bold">
+                            <span>Descuento Pago Puntual</span>
+                            <span>- $50</span>
+                        </div>
+                        <div class="flex justify-between text-blue-400 text-sm font-bold">
+                            <span>Comunidad ESIME</span>
+                            <span>- $20</span>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex justify-between items-end">
+                            <span class="text-white font-bold uppercase text-xs">Costo Final Semanal</span>
+                            <span class="text-3xl font-bold text-white">$130</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-calendar text-green-500 w-5"></i>
+                            <span>Inicio: Lunes 21 de Diciembre</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-clock text-green-500 w-5"></i>
+                            <span>Lun, Mar, Vie (6:00 - 7:30 PM)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-video text-green-500 w-5"></i>
+                            <span>Clases vía Zoom / Meet</span>
+                        </div>
+                    </div>
+
+                    <button onclick="window.location.href='https://api.whatsapp.com/send?phone=5215547062704&text=Hola! Quiero inscribirme al curso de Fundamentos de Programación ($130)'" class="w-full bg-green-500 text-black font-bold py-4 rounded-xl hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all uppercase tracking-widest text-xs">
+                        Inscribirme Ahora
+                    </button>
+                </div>
+
+                <div class="p-6 bg-blue-500/5 rounded-2xl border border-blue-500/10">
+                    <p class="text-sm text-blue-300 italic">
+                        "En Quetzi Hack no solo aprendes a programar, aprendes a pensar como ingeniero. La paciencia y los ejemplos reales son nuestra garantía."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-slate-600 text-xs uppercase tracking-widest">
+        © 2025 Quetzi Hack - Código de Ingenieros para Ingenieros.
+    </footer>
+
+</body>
+</html>

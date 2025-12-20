@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos Introductorios | Quetzi Hack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 255, 65, 0.08) 0%, rgba(10, 10, 12, 1) 50%);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .glass-card {
+            background: rgba(22, 22, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Mejora de legibilidad para textos secundarios */
+        .text-readable {
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navegación -->
+    <nav class="p-8 container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-slate-400 hover:text-green-500 transition-colors flex items-center gap-2 font-bold uppercase tracking-widest text-xs">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Portal
+        </a>
+        <span class="text-white font-bold tracking-tighter">QUETZI <span class="text-green-500">HACK</span></span>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Clases de <span class="text-green-500">Muestra</span></h1>
+            <!-- Texto actualizado para mayor contraste -->
+            <p class="text-readable text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+                Echa un vistazo a nuestra metodología. Explicaciones claras, ejemplos reales y el enfoque que necesitas para dominar la programación.
+            </p>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Video 1 -->
+            <div class="space-y-4">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2XmwOTAl-TM?si=gOmpFQGnkaN-zICu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="p-2 text-center">
+                    <h3 class="text-white font-bold text-lg">Introducción a los diagramas de flujo</h3>
+                    <p class="text-xs text-green-500/80 font-bold uppercase tracking-widest">Fundamentos de Programación</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="space-y-4">
+                <div class="video-container">
+		    <iframe width="560" height="315" src="https://www.youtube.com/embed/joEwr0TAiis?si=GWyEQZxPoBXiXUpj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="p-2 text-center">
+                    <h3 class="text-white font-bold text-lg">Estructuras en Python</h3>
+                    <p class="text-xs text-green-500/80 font-bold uppercase tracking-widest">Sintaxis y Control</p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="space-y-4">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/T31GG2vBajs?si=Zst7SPkGJ_NdlQeX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>     
+		</div>
+                <div class="p-2 text-center">
+                    <h3 class="text-white font-bold text-lg">Introducción a Los sistemas operativos</h3>
+                    <p class="text-xs text-green-500/80 font-bold uppercase tracking-widest">Sistemas Operativos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-20 glass-card p-10 rounded-3xl text-center border-green-500/20 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-4">¿Te gustó lo que viste?</h2>
+            <p class="text-readable mb-8 font-medium">Únete a nuestras sesiones en vivo y despeja todas tus dudas con mentores expertos.</p>
+            <a href="https://api.whatsapp.com/send?phone=5215547062704&text=Hola! Vi los videos de muestra y quiero inscribirme." 
+               class="inline-block bg-green-500 text-black font-bold px-10 py-4 rounded-full hover:scale-105 transition-transform uppercase text-xs tracking-widest">
+                Inscribirme al curso
+            </a>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center text-slate-600 text-[10px] uppercase tracking-[0.4em]">
+        © 2025 Quetzi Hack - Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quetzi Hack - Aprende programación</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="assets/logo.ico">   
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <img src="assets/logo.png" alt="Quetzi Hack" class="logo" />
+        <div class="hero-text">
+          <h1>Aprende programación desde cero</h1>
+          <p>
+            Clases prácticas, temarios claros y acompañamiento personalizado.
+          </p>
+          <div class="cta-row">
+            <button class="btn primary" onclick="joinChatP0()">
+              Inscribirme
+            </button>
+            <a class="btn primary" href="info.html">Ver videos</a>
+            <a class="btn outline" href="#cursos">Ver cursos</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="cursos" class="bento-grid">
+        
+        <article class="card">
+          <div class="card-top green">
+            <h3>
+              <a href="programacion-desde-0.html"> Programación desde 0 </a>
+            </h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Aprende los fundamentos de la programación, incluyendo lógica y pensamiento algorítmico.
+            </p>
+            <div class="btn primary"><a href="programacion-desde-0.html">Temario</a></div>
+          </div>
+        </article>
+
+        <!-- Tarjeta de Programación Orientada a Objetos actualizada -->
+        <article class="card">
+          <div class="card-top navy-bg">
+            <h3>
+              <a href="programacion-orientada-a-objetos.html"> Programación Orientada a Objetos </a>
+            </h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Domina los pilares de POO (Herencia, Polimorfismo, Encapsulación) aplicados a proyectos reales.
+            </p>
+            <div class="btn primary"><a href="programacion-orientada-a-objetos.html">Temario</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top navy">
+            <h3>Estructuras de Datos</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Domina listas, pilas, colas, árboles y grafos con ejemplos prácticos.
+            </p>
+          </div>
+        </article>
+
+        <article class="card whatsapp">
+          <div class="card-top teal">
+            <h3>Grupo de WhatsApp</h3>
+          </div>  
+          <div class="card-body">
+            <p>Compartimos dudas, recursos y avisos de nuevas clases.</p>
+            <div class="btn primary" onclick="joinGroup()">Unirme al grupo</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top light">
+            <h3>Recursos y Videos</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Material extra y videos introductorios para complementar tus clases.
+            </p>
+            <a class="btn outline" href="info.html#videos">Ver videos</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Quetzi Hack. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

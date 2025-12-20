@@ -1,103 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quetzi Hack - Aprende programación</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="assets/logo.ico">   
-  </head>
-  <body>
-    <header class="hero">
-      <div class="hero-inner">
-        <img src="assets/logo.png" alt="Quetzi Hack" class="logo" />
-        <div class="hero-text">
-          <h1>Aprende programación desde cero</h1>
-          <p>
-            Clases prácticas, temarios claros y acompañamiento personalizado.
-          </p>
-          <div class="cta-row">
-            <button class="btn primary" onclick="joinChatP0()">
-              Inscribirme
-            </button>
-            <a class="btn primary" href="info.html">Ver videos</a>
-            <a class="btn outline" href="#cursos">Ver cursos</a>
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quetzi Hack | Formación para Ingenieros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 255, 65, 0.08) 0%, rgba(10, 10, 12, 1) 50%);
+        }
+
+        /* Estilo mejorado para el Menú Principal */
+        .nav-link {
+            position: relative;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #22c55e; /* green-500 */
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .glass-card {
+            background: rgba(22, 22, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 255, 65, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float { animation: float 4s ease-in-out infinite; }
+
+        .reveal { animation: fadeInUp 0.8s ease forwards; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            letter-spacing: 0.4em;
+        }
+
+        .video-thumbnail {
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail::after {
+            content: "\f04b";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: white;
+            z-index: 10;
+            background: rgba(0, 255, 65, 0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover .video-thumbnail::after {
+            transform: scale(1.1);
+            background: rgba(0, 255, 65, 1);
+            color: black;
+        }
+
+        /* Estilo para el contenedor del logo */
+        .logo-container {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navegación con el nuevo Logo -->
+    <nav class="flex justify-between items-center p-8 container mx-auto">
+        <div class="flex items-center gap-3">
+            <!-- Reemplazo del icono por el logo en assets/logo.png -->
+            <div class="logo-container float">
+                <img src="assets/logo.png" alt="Quetzi Hack Logo" class="logo-img" onerror="this.parentElement.innerHTML='<div class=\'w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center\'><i class=\'fa-solid fa-terminal text-black font-bold\'></i></div>'">
+            </div>
+            <span class="text-xl font-bold tracking-tighter text-white uppercase">QUETZI <span class="text-green-500">HACK</span></span>
         </div>
-      </div>
-    </header>
+        <div class="hidden md:flex gap-10 text-xs uppercase tracking-[0.2em] font-bold">
+            <a href="#cursos" class="nav-link">Cursos</a>
+            <a href="videos.html" class="nav-link">Videos</a>
+            <a href="https://api.whatsapp.com/send?phone=5215547062704" class="nav-link !text-green-500">Contacto</a>
+        </div>
+    </nav>
 
-    <main class="container">
-      <section id="cursos" class="bento-grid">
-        
-        <article class="card">
-          <div class="card-top green">
-            <h3>
-              <a href="programacion-desde-0.html"> Programación desde 0 </a>
-            </h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Aprende los fundamentos de la programación, incluyendo lógica y pensamiento algorítmico.
+    <!-- Sección Hero -->
+    <main class="container mx-auto px-6 pt-12 pb-24 text-center">
+        <header class="max-w-4xl mx-auto reveal">
+            <span class="mono text-white font-bold text-xs md:text-sm hero-subtitle uppercase mb-6 block">
+                <span class="text-green-400">/</span> Aprende programación real <span class="text-green-400">/</span>
+            </span>
+            
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+                Forjando a los <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Futuros Ingenieros</span>
+            </h1>
+            <p class="text-white text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
+                Cursos prácticos diseñados específicamente para la comunidad estudiantil, enfocados en lógica, eficiencia y resultados.
             </p>
-            <div class="btn primary"><a href="programacion-desde-0.html">Temario</a></div>
-          </div>
-        </article>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+                <a href="#cursos" class="bg-green-500 text-black font-bold px-10 py-4 rounded-full hover:scale-105 transition-transform uppercase text-xs tracking-widest">
+                    Explorar Cursos
+                </a>
+                <a href="videos.html" class="border border-white/20 text-white font-bold px-10 py-4 rounded-full hover:bg-white/5 transition-colors uppercase text-xs tracking-widest flex items-center gap-2 justify-center">
+                    <i class="fa-solid fa-play text-[10px]"></i> Ver Videos de Muestra
+                </a>
+            </div>
+        </header>
 
-        <!-- Tarjeta de Programación Orientada a Objetos actualizada -->
-        <article class="card">
-          <div class="card-top navy-bg">
-            <h3>
-              <a href="programacion-orientada-a-objetos.html"> Programación Orientada a Objetos </a>
-            </h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Domina los pilares de POO (Herencia, Polimorfismo, Encapsulación) aplicados a proyectos reales.
-            </p>
-            <div class="btn primary"><a href="programacion-orientada-a-objetos.html">Temario</a></div>
-          </div>
-        </article>
+        <!-- Sección de Videos Rápida al inicio -->
+        <section class="mb-32 reveal" style="animation-delay: 0.1s;">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Videos Introductorios</h2>
+                <div class="h-[1px] bg-white/10 flex-grow"></div>
+                <a href="videos.html" class="text-xs text-green-500 uppercase tracking-widest hover:underline font-bold">Ver todos</a>
+            </div>
 
-        <article class="card">
-          <div class="card-top navy">
-            <h3>Estructuras de Datos</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Domina listas, pilas, colas, árboles y grafos con ejemplos prácticos.
-            </p>
-          </div>
-        </article>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <!-- Miniatura 1 -->
+                <a href="videos.html" class="glass-card p-4 rounded-2xl group overflow-hidden">
+                    <div class="video-thumbnail mb-4">
+                        <img src="https://img.youtube.com/vi/42aNhQco8Vk/maxresdefault.jpg" alt="Video 1" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <p class="text-sm font-bold text-white group-hover:text-green-500 transition-colors">1. Relación entre C++ y la terminal</p>
+                </a>
+                <!-- Miniatura 2 -->
+                <a href="videos.html" class="glass-card p-4 rounded-2xl group overflow-hidden">
+                    <div class="video-thumbnail mb-4">
+                        <img src="https://img.youtube.com/vi/MXO9o0axfH8/maxresdefault.jpg" alt="Video 2" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <p class="text-sm font-bold text-white group-hover:text-green-500 transition-colors">2. C++</p>
+                </a>
+                <!-- Miniatura 3 -->
+                <a href="videos.html" class="glass-card p-4 rounded-2xl group overflow-hidden">
+                    <div class="video-thumbnail mb-4">
+                        <img src="https://img.youtube.com/vi/joEwr0TAiis/maxresdefault.jpg" alt="Video 3" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <p class="text-sm font-bold text-white group-hover:text-green-500 transition-colors">3. Python</p>
+                </a>
+            </div>
+        </section>
 
-        <article class="card whatsapp">
-          <div class="card-top teal">
-            <h3>Grupo de WhatsApp</h3>
-          </div>  
-          <div class="card-body">
-            <p>Compartimos dudas, recursos y avisos de nuevas clases.</p>
-            <div class="btn primary" onclick="joinGroup()">Unirme al grupo</div>
-          </div>
-        </article>
+        <!-- Sección Cursos -->
+        <section id="cursos" class="reveal" style="animation-delay: 0.2s;">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl font-bold text-white">Nuestras Rutas</h2>
+                <div class="h-[1px] bg-white/10 flex-grow"></div>
+            </div>
 
-        <article class="card">
-          <div class="card-top light">
-            <h3>Recursos y Videos</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Material extra y videos introductorios para complementar tus clases.
-            </p>
-            <a class="btn outline" href="info.html#videos">Ver videos</a>
-          </div>
-        </article>
-      </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Curso 1: Fundamentos -->
+                <div onclick="window.location.href='fundamentos.html'" class="glass-card p-8 rounded-3xl text-left cursor-pointer lg:col-span-2 group border-green-500/10">
+                    <div class="flex justify-between items-start mb-12">
+                        <div class="p-4 bg-green-500/10 rounded-2xl text-green-500 group-hover:bg-green-500 group-hover:text-black transition-colors">
+                            <i class="fa-solid fa-code text-3xl"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="mono text-xs text-green-400 font-bold block">Equivalente a 1ER SEMESTRE</span>
+                            <span class="mono text-xs text-slate-500 uppercase tracking-tighter">Desde $130 / Semanal</span>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Fundamentos de Programación</h3>
+                    <p class="text-slate-400 mb-8 max-w-md">Inicia tu camino en el IPN o la UNAM. Aprende lógica, estructuras de control y POO con Python desde cero absoluto.</p>
+                    <div class="flex items-center gap-2 text-green-500 font-bold text-sm uppercase tracking-widest">
+                        Ver Temario Completo <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Curso 2: Avanzada -->
+                <div onclick="window.location.href='avanzada.html'" class="glass-card p-8 rounded-3xl text-left cursor-pointer border-blue-500/20 group">
+                    <div class="flex justify-between items-start mb-12">
+                        <div class="p-4 bg-blue-500/10 rounded-2xl text-blue-400 group-hover:bg-blue-500 group-hover:text-black transition-colors">
+                            <i class="fa-solid fa-microchip text-3xl"></i>
+                        </div>
+                        <span class="mono text-[10px] text-slate-500">Equivalente a 2DO SEMESTRE</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Programación Avanzada</h3>
+                    <p class="text-slate-400 mb-8 text-sm leading-relaxed">Estructuras de datos dinámicas, grafos, árboles y concurrencia. Las herramientas más complejas para la programación de la ingeniería.</p>
+                    <div class="flex items-center gap-2 text-blue-400 font-bold text-sm uppercase tracking-widest">
+                        Ver Detalles <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Card de Redes -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col items-center justify-center text-center bg-gradient-to-b from-transparent to-green-500/5">
+                    <div class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-6 text-2xl text-green-500 border border-green-500/20">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">Comunidad VIP</h4>
+                    <p class="text-slate-500 text-sm mb-6">Únete al grupo de apoyo para resolver dudas de laboratorio y tareas de ESIME.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5215547062704" class="text-xs font-bold uppercase tracking-widest text-green-500 hover:underline">Unirse al Grupo</a>
+                </div>
+
+                <!-- Card de Testimonios -->
+                <div class="glass-card p-8 rounded-3xl lg:col-span-2 text-left bg-gradient-to-br from-green-500/5 to-transparent">
+                    <div class="flex gap-4 items-center mb-6">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-black"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-600 border-2 border-black"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-500 border-2 border-black"></div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-bold uppercase tracking-widest">+50 alumnos inscritos este semestre</span>
+                    </div>
+                    <p class="text-white text-lg italic leading-relaxed">
+                        "La mejor inversión para no tronar programación en el primer parcial. Las clases son claras y directas al grano, justo lo que pide el programa de ESIME."
+                    </p>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer">
-      <p>© 2025 Quetzi Hack. Todos los derechos reservados.</p>
+    <footer class="border-t border-white/5 py-12">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left flex items-center gap-2">
+                <img src="assets/logo.png" alt="Logo" class="w-6 h-6 object-contain" onerror="this.style.display='none'">
+                <span class="text-white font-bold tracking-tighter uppercase">QUETZI <span class="text-green-500">HACK</span></span>
+            </div>
+            <div class="flex gap-6 text-slate-400">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5215547062704" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+        <div class="mt-12 text-center text-slate-600 text-[10px] uppercase tracking-[0.4em]">
+            © 2025 Quetzi Hack - Todos los derechos reservados.
+        </div>
     </footer>
 
-    <script src="js/app.js"></script>
-  </body>
+</body>
 </html>

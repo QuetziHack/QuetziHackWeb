@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Avanzada | Quetzi Hack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top left, rgba(0, 210, 255, 0.05) 0%, rgba(10, 10, 12, 1) 50%);
+        }
+
+        .glass-card {
+            background: rgba(22, 22, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { animation: fadeInUp 0.6s ease forwards; }
+
+        .accent-blue { color: #00d2ff; }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navegación -->
+    <nav class="p-6">
+        <a href="index.html" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 font-bold uppercase tracking-widest text-xs">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Portal
+        </a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <header class="mb-16 reveal">
+            <span class="mono accent-blue text-sm tracking-widest uppercase mb-2 block">// Nivel Avanzado - ICE 2do Semestre</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Programación <br><span class="accent-blue">Avanzada</span></h1>
+            <p class="text-white text-lg max-w-2xl leading-relaxed">
+                El curso definitivo sobre Estructuras de Datos y Programación Concurrente. Domina la eficiencia algorítmica y prepárate para los retos reales de la ICE.
+            </p>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Temario Columna Izquierda -->
+            <div class="lg:col-span-2 space-y-8 reveal">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-microchip accent-blue"></i> Módulos Avanzados (5 Semanas)
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono text-blue-500 font-bold">WEEK 01</span>
+                            <i class="fa-solid fa-memory opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Memoria y Nodos</h3>
+                        <p class="text-xs text-slate-400">Punteros en Python, gestión de memoria dinámica y creación de clases Nodo para estructuras complejas.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono text-blue-500 font-bold">WEEK 02</span>
+                            <i class="fa-solid fa-layer-group opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Pilas y Colas</h3>
+                        <p class="text-xs text-slate-400">Implementación manual de estructuras LIFO y FIFO. Optimización de procesos y algoritmos de cola.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono text-blue-500 font-bold">WEEK 03</span>
+                            <i class="fa-solid fa-tree opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Árboles de Búsqueda</h3>
+                        <p class="text-xs text-slate-400">Árboles binarios, métodos de inserción y recorridos (In-order, Pre-order, Post-order).</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono text-blue-500 font-bold">WEEK 04</span>
+                            <i class="fa-solid fa-diagram-project opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Teoría de Grafos</h3>
+                        <p class="text-xs text-slate-400">Representación de redes, búsqueda en amplitud (BFS) y profundidad (DFS). Algoritmos de ruta óptima.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl md:col-span-2 group hover:border-blue-500/30 transition-all border-dashed border-blue-500/40">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="mono text-blue-500 font-bold">WEEK 05</span>
+                            <i class="fa-solid fa-bolt accent-blue opacity-50 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Programación Concurrente</h3>
+                        <p class="text-sm text-slate-400 italic">Integración de Hilos (Threading) para ejecutar procesos en paralelo y proyecto final de alta eficiencia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles Columna Derecha -->
+            <div class="space-y-6 reveal" style="animation-delay: 0.2s;">
+                <div class="glass-card p-8 rounded-3xl border-blue-500/20">
+                    <h3 class="text-xl font-bold text-white mb-6">Inversión y Horarios</h3>
+                    
+                    <!-- Desglose de Costos -->
+                    <div class="space-y-3 mb-8 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <div class="flex justify-between text-slate-400 line-through text-sm">
+                            <span>Precio Regular</span>
+                            <span>$200</span>
+                        </div>
+                        <div class="flex justify-between accent-blue text-sm font-bold">
+                            <span>Descuento Pago Puntual</span>
+                            <span>- $50</span>
+                        </div>
+                        <div class="flex justify-between text-green-400 text-sm font-bold">
+                            <span>Comunidad ESIME</span>
+                            <span>- $20</span>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex justify-between items-end">
+                            <span class="text-white font-bold uppercase text-xs">Costo Final Semanal</span>
+                            <span class="text-3xl font-bold text-white">$130</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-calendar accent-blue w-5"></i>
+                            <span>Inicio: Lunes 21 de Diciembre</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-clock accent-blue w-5"></i>
+                            <span>Lun, Mar, Vie (3:00 - 4:30 PM)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i class="fa-solid fa-brain accent-blue w-5"></i>
+                            <span>Enfoque en Optimización</span>
+                        </div>
+                    </div>
+
+                    <button onclick="window.location.href='https://api.whatsapp.com/send?phone=5215547062704&text=Hola! Quiero más información del curso de Programación Avanzada ($130)'" 
+                            class="w-full bg-blue-500 text-black font-bold py-4 rounded-xl hover:shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all uppercase tracking-widest text-xs">
+                        Solicitar Inscripción
+                    </button>
+                </div>
+
+                <div class="p-6 bg-green-500/5 rounded-2xl border border-green-500/10">
+                    <p class="text-sm text-green-300 italic">
+                        "Dominar las estructuras de datos es lo que separa a un programador de un verdadero ingeniero de software."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-slate-600 text-xs uppercase tracking-widest">
+        © 2025 Quetzi Hack - Tecnología para el futuro de la ingeniería.
+    </footer>
+
+</body>
+</html>
