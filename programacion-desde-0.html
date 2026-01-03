@@ -1,172 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Programación desde 0 - Quetzi Hack</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="assets/logo.ico" />
-  </head>
-  <body>
-    <header class="hero">
-      <div class="hero-inner">
-        <img src="assets/logo.png" alt="Quetzi Hack" class="logo" />
-        <div class="hero-text">
-          <h1>Programación desde 0</h1>
-          <p>Curso completo para aprender a programar desde cero.</p>
-          <a class="btn primary" href="index.html">Volver al inicio</a>
-        </div>
-      </div>
-    </header>
-    <main class="container">
-      <section class="temario-section">
-        <h2 style="margin-bottom: 2rem">Temario del curso</h2>
-        <section id="cursos" class="bento-grid">
-          <article class="card">
-            <div class="card-top green">
-              <h3>Introducción a la programación</h3>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Presentación del curso</li>
-                <li>Comprendiendo la programación</li>
-                <li>Teoría de la computación</li>
-                <li>Introducción a la ingeniería de software</li>
-                <li>
-                  Fundamentos de Sistemas Operativos (Windows, MS-DOS, Unix,
-                  Linux, Mac OS, XOs)
-                </li>
-                <li>Conociendo la consola y comandos básicos</li>
-                <li>CTF model bandit (niveles 1-13)</li>
-              </ul>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-top teal">
-              <h3>Programación básica</h3>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>
-                  Python: Salidas, Variables, Operadores, Entradas, Diagramas de
-                  flujo, Funciones, Estructuras de control, Ciclos, Matemáticas
-                  formales, Colecciones de datos, Ficheros, Notación asintótica
-                </li>
-                <li>
-                  C/C++: Variables, memoria, punteros, funciones, arreglos,
-                  estructuras, algoritmos
-                </li>
-                <li>Repaso y examen para constancia</li>
-              </ul>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-top navy">
-              <h3>Programación Orientada a Objetos</h3>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>
-                  Teoría: Historia, Clases, Métodos y atributos,
-                  Características, Abstracción, Diagramas UML
-                </li>
-                <li>
-                  C++: Memoria dinámica, Arreglos dinámicos, Vectores,
-                  Algoritmos, Abstracción, Encapsulamiento, Herencia,
-                  Polimorfismo, Clases abstractas, Interfaces, Templates
-                </li>
-                <li>
-                  Python: Clases, Abstracción, Encapsulamiento, Herencia (simple
-                  y múltiple), Polimorfismo
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-top light">
-              <h3>Estructuras de datos</h3>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Listas (LSE, LDE, LCSE, LCDE, pilas, colas)</li>
-                <li>Algoritmos sobre listas</li>
-                <li>Árboles y algoritmos sobre árboles</li>
-                <li>Teoría de grafos y grafos</li>
-                <li>Algoritmos sobre grafos</li>
-              </ul>
-            </div>
-          </article>
-        </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Desde 0 | Quetzi Hack</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
-        <h2 class="temario-aprendizaje">¿Qué aprenderás?</h2>
-        <ul class="temario-lista-aprendizaje">
-          <li>Fundamentos de programación y algoritmos</li>
-          <li>Uso de Python y C/C++ desde cero</li>
-          <li>Resolución de problemas y ejercicios prácticos</li>
-          <li>Conceptos de sistemas operativos y consola</li>
-          <li>Matemáticas aplicadas a la programación</li>
-        </ul>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #030305; /* Fondo más oscuro (Deep Dark) */
+            color: #e2e8f0;
+        }
 
-        <section class="curso-info">
-          <div class="info-card">
-            <h2 class="info-title">Acompañamiento y atención</h2>
-            <p class="info-detail">
-              Soy muy paciente y atiendo tus dudas al momento.<br />Mis cursos
-              incluyen acompañamiento para que les saques el mayor provecho.
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .accent-custom { color: #150fb9; }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at top left, rgba(21, 15, 185, 0.12) 0%, rgba(3, 3, 5, 1) 70%);
+            min-height: 100vh;
+        }
+
+        /* Opacidad incrementada para mejor legibilidad */
+        .glass-card {
+            background: rgba(21, 15, 185, 0.22); 
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(21, 15, 185, 0.35);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(21, 15, 185, 0.3);
+            border-color: #150fb9;
+            box-shadow: 0 0 35px rgba(21, 15, 185, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .reveal {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navegación -->
+    <nav class="p-6">
+        <a href="index.html" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 font-bold uppercase tracking-widest text-xs">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Portal
+        </a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <header class="mb-16 reveal">
+            <span class="mono accent-custom text-sm tracking-widest uppercase mb-2 block">// Nivel Inicial - Fundamentos + POO (18 Semanas)</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Programación <br><span class="accent-custom">Desde Cero</span></h1>
+            <p class="text-white text-lg max-w-2xl leading-relaxed opacity-90">
+                El curso más completo para iniciar. Desde cómo funciona una computadora y Linux, hasta dominar C++, Python y la Programación Orientada a Objetos.
             </p>
-          </div>
-          <div class="info-card">
-            <h2 class="info-title">Horarios</h2>
-            <p class="info-detail">
-              Matutino: Lunes, martes y jueves de 10:00 a 11:30 am (casi 12)<br/>Inicio:
-              Jueves 2 de Octubre<br />Vespertino: Lunes, Miércoles y Jueves de 6:00 pm a 7:30 pm (casi 8:00 pm)
-              <br/>Inicio: 
-              Miércoles 15 de Octubre <br/>
-              Modalidad: En línea (Zoom) para que te
-              olvides del tráfico <br />
+        </header>
 
-              Si no puedes asistir algún día, no te preocupes, las clases
-              quedan grabadas para que puedas consultarlas en cualquier momento
-            </p>
-          </div>
-          <div class="info-card">
-            <div class="info-precio">
-              <h2 class="info-title">Costo</h2>
-              <div class="precio-base">
-                Precio regular:
-                <span class="precio-base-cifra">$180</span> semanales
-              </div>
-              <div class="promo-descuentos">
-                <span class="promo-estudiante"
-                  >- $20 descuento por ser estudiante de educación pública</span
-                ><br />
-                <span class="promo-puntual"
-                  >- $40 descuento por pago puntual</span
-                >
-              </div>
-              <div class="precio-final">
-                <span class="precio-final-label"
-                  >¡Total con ambos descuentos!</span
-                ><br />
-                <span class="precio-final-cifra">$120</span> semanales
-              </div>
+        <!-- Banner de Grabaciones -->
+        <div class="glass-card p-6 rounded-2xl mb-12 flex flex-col md:flex-row items-center gap-6 reveal">
+            <div class="w-12 h-12 rounded-full bg-[#150fb9]/30 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-clapperboard text-blue-400 text-xl"></i>
             </div>
-          </div>
-        </section>
-
-        <div class="temario-resumen">
-          <div class="temario-inscripcion-row">
-            <button class="btn primary" onclick="joinChatP0()">
-              Inscribirme
-            </button>
-            <a class="btn outline" href="index.html">Volver al inicio</a>
-          </div>
+            <div class="flex-grow">
+                <h4 class="text-white font-bold text-lg">Sesiones Grabadas</h4>
+                <p class="text-slate-400 text-sm italic">¿No pudiste asistir? Todas las clases se graban y se suben al portal con materiales descargables.</p>
+            </div>
+            <div class="mono text-[10px] text-blue-400 border border-blue-400/30 px-3 py-1 rounded">ACCESO 24/7</div>
         </div>
-      </section>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Temario Columna Izquierda -->
+            <div class="lg:col-span-2 space-y-8 reveal">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-code accent-custom"></i> Temario Completo
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    
+                    <!-- Módulo 1 -->
+                    <div class="glass-card p-6 rounded-2xl group transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono accent-custom font-bold">MÓDULO 01</span>
+                            <i class="fa-brands fa-linux opacity-50 text-2xl text-white group-hover:text-[#150fb9] transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Lógica y Sistemas</h3>
+                        <ul class="text-xs text-slate-300 list-disc list-inside space-y-1 font-light">
+                            <li>Fundamentos de SO (Windows, Unix/Linux).</li>
+                            <li>Consola y Comandos Básicos (CTF Bandit).</li>
+                            <li>Diagramas de Flujo y Lógica Proposicional.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="glass-card p-6 rounded-2xl group transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono accent-custom font-bold">MÓDULO 02</span>
+                            <i class="fa-brands fa-python opacity-50 text-2xl text-white group-hover:text-[#150fb9] transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Python Core</h3>
+                        <ul class="text-xs text-slate-300 list-disc list-inside space-y-1 font-light">
+                            <li>Variables, Operadores y Ciclos (While/For).</li>
+                            <li>Colecciones: Listas, Tuplas, Diccionarios.</li>
+                            <li>Manejo de Ficheros y Notación Asintótica (Big O).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div class="glass-card p-6 rounded-2xl group transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono accent-custom font-bold">MÓDULO 03</span>
+                            <i class="fa-solid fa-memory opacity-50 text-2xl text-white group-hover:text-[#150fb9] transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">C++ y Memoria</h3>
+                        <ul class="text-xs text-slate-300 list-disc list-inside space-y-1 font-light">
+                            <li>Punteros y Gestión de Memoria (New/Delete).</li>
+                            <li>Arreglos, Vectores y Estructuras.</li>
+                            <li>Paso de parámetros por Valor y Referencia.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 4 -->
+                    <div class="glass-card p-6 rounded-2xl group transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="mono accent-custom font-bold">MÓDULO 04</span>
+                            <i class="fa-solid fa-cubes opacity-50 text-2xl text-white group-hover:text-[#150fb9] transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">POO Profunda</h3>
+                        <ul class="text-xs text-slate-300 list-disc list-inside space-y-1 font-light">
+                            <li>Clases, Objetos, Constructores y Destructores.</li>
+                            <li>Encapsulamiento, Herencia y Polimorfismo.</li>
+                            <li>Diagramas UML y Templates.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 5 (RESTAURADO) -->
+                    <div class="glass-card p-6 rounded-2xl md:col-span-2 group transition-all border-dashed" style="border-style: dashed;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="mono accent-custom font-bold">MÓDULO 05</span>
+                            <i class="fa-solid fa-network-wired opacity-50 text-2xl text-white group-hover:text-[#150fb9] transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Estructuras y Concurrencia</h3>
+                        <p class="text-sm text-slate-300 font-light">Listas (Pilas/Colas), Árboles, Grafos y una introducción sólida a Hilos vs Procesos (Race Conditions, Semáforos).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles Columna Derecha -->
+            <div class="space-y-8 reveal" style="animation-delay: 0.2s;">
+                <div class="glass-card p-8 rounded-3xl sticky top-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Inversión y Horarios</h3>
+                    
+                    <!-- Desglose de Costos -->
+                    <div class="space-y-3 mb-8 bg-black/40 p-5 rounded-xl border border-[#150fb9]/40">
+                        <div class="flex justify-between text-slate-500 line-through text-xs">
+                            <span>Precio Regular</span>
+                            <span>$220</span>
+                        </div>
+                        <div class="flex justify-between text-blue-400 text-sm font-semibold">
+                            <span>Beca Inst. Pública</span>
+                            <span>- $40</span>
+                        </div>
+                        <div class="flex justify-between text-green-400 text-sm font-semibold">
+                            <span>Pago Puntual</span>
+                            <span>- $50</span>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex justify-between items-end">
+                            <span class="text-white font-bold uppercase text-[10px] tracking-widest">Costo Semanal</span>
+                            <span class="text-3xl font-bold text-white">$130</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-calendar-check accent-custom w-5"></i>
+                            <span>Duración: 18 Semanas</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-clock accent-custom w-5"></i>
+                            <span>Lun, Mar, Vie (2:30 - 4:00 PM)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-video accent-custom w-5"></i>
+                            <span>Clases Grabadas Incluidas</span>
+                        </div>
+                    </div>
+
+                    <button onclick="window.location.href='https://api.whatsapp.com/send?phone=5215560318196&text=Hola! Quiero inscribirme al curso de Programación Desde Cero (18 semanas - $130)'" 
+                            class="w-full bg-[#150fb9] text-white font-bold py-4 rounded-xl hover:shadow-[0_0_25px_rgba(21,15,185,0.5)] transition-all uppercase tracking-widest text-xs hover:scale-[1.02] active:scale-95 duration-200 mb-6">
+                        Inscribirme Ahora
+                    </button>
+
+                    <!-- Separación clara del comentario -->
+                    <div class="pt-6 border-t border-white/5">
+                        <div class="p-4 rounded-xl bg-[#150fb9]/10 border border-[#150fb9]/20">
+                            <p class="text-xs text-blue-200 italic leading-relaxed">
+                                "Un recorrido completo desde los comandos básicos de Linux hasta las estructuras de datos avanzadas, con todas las clases disponibles para repaso."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer class="site-footer">
-      <p>© 2025 Quetzi Hack. Todos los derechos reservados.</p>
+
+    <footer class="py-12 text-center text-slate-700 text-[10px] uppercase tracking-[0.4em]">
+        © 2025 Quetzi Hack - Tecnología para el futuro de la ingeniería.
     </footer>
-    <script src="js/app.js"></script>
-  </body>
+
+</body>
 </html>
