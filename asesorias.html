@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesorías ETS y Especiales | Quetzi Hack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* FONDO ESTÁTICO - Degradado fijo que no se mueve */
+        .hero-gradient {
+            background: 
+                /* Degradado principal fijo */
+                linear-gradient(
+                    135deg,
+                    #0a0a0f 0%,
+                    #070710 25%,
+                    #050515 50%,
+                    #070710 75%,
+                    #0a0a0f 100%
+                );
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Efecto glass al 90% - MUY TRANSPARENTE */
+        .glass-card {
+            background: rgba(22, 22, 26, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(22, 22, 26, 0.12);
+            border-color: rgba(21, 15, 185, 0.3);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(21, 15, 185, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { animation: fadeInUp 0.6s ease forwards; }
+
+        .text-electric { 
+            color: #150fb9;
+            text-shadow: 0 0 10px rgba(21, 15, 185, 0.3);
+        }
+        
+        .bg-electric { 
+            background: linear-gradient(135deg, #150fb9, #0f0a8c);
+            box-shadow: 0 0 20px rgba(21, 15, 185, 0.4);
+        }
+        
+        .border-electric { 
+            border-color: #150fb9;
+            box-shadow: 0 0 15px rgba(21, 15, 185, 0.2);
+        }
+
+        /* Estilo para etiquetas de materias */
+        .badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            border: 1px solid rgba(21, 15, 185, 0.4);
+            color: #a0aec0;
+            background: rgba(21, 15, 185, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Pestañas de plan */
+        .tab-btn {
+            background: rgba(22, 22, 26, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            transition: all 0.3s;
+            color: #94a3b8;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(21, 15, 185, 0.15), rgba(21, 15, 185, 0.05));
+            border-color: #150fb9;
+            color: #ffffff;
+            box-shadow: 
+                0 0 25px rgba(21, 15, 185, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Clase para resaltar el precio seleccionado */
+        .price-selected {
+            border-color: #150fb9 !important;
+            background: linear-gradient(135deg, rgba(21, 15, 185, 0.18), rgba(21, 15, 185, 0.08)) !important;
+            transform: scale(1.02);
+            box-shadow: 
+                0 0 30px rgba(21, 15, 185, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Efecto en hover para precios */
+        .price-card:hover {
+            border-color: rgba(21, 15, 185, 0.3);
+            transform: scale(1.02);
+            background: rgba(22, 22, 26, 0.12);
+        }
+
+        /* Mensaje de selección */
+        .selection-message {
+            background: rgba(22, 22, 26, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Efecto para las cartas del temario */
+        .course-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .course-card.selected {
+            border-color: #150fb9 !important;
+            background: linear-gradient(135deg, rgba(21, 15, 185, 0.18), rgba(21, 15, 185, 0.08));
+            box-shadow: 
+                0 0 40px rgba(21, 15, 185, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Botón con efecto glow */
+        .btn-glow {
+            background: linear-gradient(135deg, #150fb9, #0f0a8c);
+            box-shadow: 0 4px 14px 0 rgba(21, 15, 185, 0.39);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow:hover {
+            background: linear-gradient(135deg, #1a12d4, #150fb9);
+            box-shadow: 0 6px 20px rgba(21, 15, 185, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Texto con efecto neon */
+        .neon-text {
+            text-shadow: 
+                0 0 5px #150fb9,
+                0 0 10px rgba(21, 15, 185, 0.5),
+                0 0 15px rgba(21, 15, 185, 0.3);
+        }
+
+        /* Línea divisora con gradiente */
+        .gradient-line {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(21, 15, 185, 0.3) 20%, 
+                rgba(21, 15, 185, 0.5) 50%, 
+                rgba(21, 15, 185, 0.3) 80%, 
+                transparent 100%
+            );
+        }
+
+        /* Efecto sutil de partículas estáticas */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(21, 15, 185, 0.03) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(21, 15, 185, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px;
+            background-position: 0 0, 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Asegurar que el contenido esté sobre las partículas */
+        main, nav, footer {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <nav class="p-6">
+        <a href="index.html" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 font-bold uppercase tracking-widest text-xs glass-card py-2 px-4 rounded-full">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+        </a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+        
+        <header class="mb-12 reveal text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 mb-4">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Recuperación ETS</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                No dejes tu carrera <br>
+                <span class="text-electric neon-text">A la Suerte.</span>
+            </h1>
+            <p class="selection-message text-slate-300 text-base md:text-lg max-w-2xl mx-auto py-3 px-6 rounded-full mb-6">
+                <i class="fas fa-info-circle mr-2 text-electric"></i>
+                Selecciona tu plan de estudios y el curso para ver el temario específico.
+            </p>
+        </header>
+
+        <!-- Selector de Plan -->
+        <div class="flex justify-center gap-6 mb-8 max-w-lg mx-auto">
+            <button onclick="switchPlan('2003')" id="btn-2003" class="tab-btn active">
+                <h3 class="font-bold text-lg">Plan 2003</h3>
+                <p class="text-sm text-slate-400 mt-1">Estructura tradicional</p>
+            </button>
+            <button onclick="switchPlan('2024')" id="btn-2024" class="tab-btn">
+                <h3 class="font-bold text-lg">Plan 2024</h3>
+                <p class="text-sm text-slate-400 mt-1">Enfoque moderno</p>
+            </button>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6">
+            
+            <!-- Columna izquierda: Contenido del Plan -->
+            <div class="lg:col-span-8 space-y-6 reveal">
+                
+                <!-- Plan 2003 -->
+                <div id="content-2003" class="space-y-6">
+                    <!-- Fundamentos Plan 2003 -->
+                    <div onclick="selectCourse('fund', '2003')" id="course-fund-2003" class="course-card glass-card p-6 rounded-2xl group relative overflow-hidden selected">
+                        <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fa-brands fa-cuttlefish text-8xl text-electric"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge">C++</span>
+                                <span class="badge">Fundamentos</span>
+                                <span class="badge">1.5 horas</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Fundamentos (C++)</h3>
+                            <ul class="text-sm text-slate-400 space-y-2 list-none">
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Lógica algorítmica y pseudo-código</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Sintaxis C++: variables, operadores</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Estructuras de control (if/else, bucles)</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Arreglos y funciones básicas</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Entrada/salida y manejo básico</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- POO Plan 2003 -->
+                    <div onclick="selectCourse('poo', '2003')" id="course-poo-2003" class="course-card glass-card p-6 rounded-2xl group relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fa-solid fa-cubes text-8xl text-electric"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge">C++</span>
+                                <span class="badge">POO</span>
+                                <span class="badge">Por hora</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Programación Orientada a Objetos</h3>
+                            <ul class="text-sm text-slate-400 space-y-2 list-none">
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Clases, objetos y encapsulamiento</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Herencia y polimorfismo</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Sobrecarga de operadores</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Clases base y derivadas</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Funciones plantilla (templates)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Estructuras y Métodos Numéricos Plan 2003 -->
+                    <div onclick="selectCourse('estructuras', '2003')" id="course-estructuras-2003" class="course-card glass-card p-6 rounded-2xl group border-l-4 border-electric">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-network-wired text-electric"></i> Estructuras & Métodos Numéricos
+                            </h3>
+                            <div class="flex gap-2">
+                                <span class="badge">C++</span>
+                                <span class="badge">Por hora</span>
+                                <span class="text-xs text-slate-500 font-mono bg-black/30 px-2 py-1 rounded">Crítica</span>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6 text-sm text-slate-400">
+                            <div>
+                                <h4 class="text-white font-bold mb-2">Estructuras de Datos</h4>
+                                <ul class="space-y-1">
+                                    <li>• Listas enlazadas (simples, dobles)</li>
+                                    <li>• Pilas, colas y árboles binarios</li>
+                                    <li>• Árboles AVL y recorridos</li>
+                                    <li>• Grafos y algoritmos de búsqueda</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2">Métodos Numéricos</h4>
+                                <ul class="space-y-1">
+                                    <li>• Newton-Raphson y bisección</li>
+                                    <li>• Interpolación de Lagrange</li>
+                                    <li>• Método de Euler</li>
+                                    <li>• Diferencias finitas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan 2024 -->
+                <div id="content-2024" class="space-y-6 hidden">
+                    <!-- Fundamentos y POO Unificada Plan 2024 -->
+                    <div onclick="selectCourse('fund-poo', '2024')" id="course-fund-poo-2024" class="course-card glass-card p-6 rounded-2xl group relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fab fa-python text-8xl text-electric"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge">Python/C++</span>
+                                <span class="badge">Fundamentos + POO</span>
+                                <span class="badge">1.5 horas</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Fundamentos & POO Unificada</h3>
+                            <ul class="text-sm text-slate-400 space-y-2 list-none">
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Python básico: variables y estructuras</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Funciones y programación modular</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Clases, herencia y polimorfismo</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Decoradores y propiedades</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>C++ complementario</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Programación Avanzada Plan 2024 -->
+                    <div onclick="selectCourse('avanzada', '2024')" id="course-avanzada-2024" class="course-card glass-card p-6 rounded-2xl group relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="fa-solid fa-bolt text-8xl text-electric"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge">Avanzado</span>
+                                <span class="badge">Concurrencia</span>
+                                <span class="badge">Por hora</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Programación Avanzada</h3>
+                            <ul class="text-sm text-slate-400 space-y-2 list-none">
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Estructuras avanzadas (grafos, tablas hash)</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Ficheros especializados (JSON, CSV)</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Programación concurrente (threads)</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Patrones de diseño</li>
+                                <li><i class="fa-solid fa-check text-electric text-xs mr-2"></i>Sincronización y deadlocks</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Análisis de Datos Plan 2024 -->
+                    <div onclick="selectCourse('analisis', '2024')" id="course-analisis-2024" class="course-card glass-card p-6 rounded-2xl group relative overflow-hidden border-dashed border-electric/40 selected">
+                        <div class="absolute -right-6 -bottom-6 opacity-3 group-hover:opacity-8 transition-opacity">
+                            <i class="fa-solid fa-chart-line text-9xl text-white"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge">Python</span>
+                                <span class="badge">Data Science</span>
+                                <span class="badge">2 horas</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-bar text-electric"></i> Análisis de Datos
+                            </h3>
+                            <div class="grid md:grid-cols-3 gap-4 text-xs text-slate-400 mono">
+                                <div class="glass-card p-3 rounded hover:bg-white/5 transition">
+                                    <strong class="text-white block mb-1">Data Science:</strong>
+                                    Pandas, NumPy, manipulación de datos.
+                                </div>
+                                <div class="glass-card p-3 rounded hover:bg-white/5 transition">
+                                    <strong class="text-white block mb-1">Visualización:</strong>
+                                    Matplotlib, Seaborn, gráficos estadísticos.
+                                </div>
+                                <div class="glass-card p-3 rounded hover:bg-white/5 transition">
+                                    <strong class="text-white block mb-1">Métodos Numéricos:</strong>
+                                    SciPy, optimización, interpolación.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Tarifas y Acción -->
+            <div class="lg:col-span-4 space-y-6 reveal" style="animation-delay: 0.2s;">
+                
+                <div class="glass-card p-6 rounded-3xl relative">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-electric text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_15px_#150fb9]">
+                        Tarifas Especiales
+                    </div>
+
+                    <div class="text-center mt-4 mb-6">
+                        <p class="text-slate-400 text-xs uppercase mb-1">Selección automática</p>
+                        <h2 id="selected-price" class="text-4xl font-bold text-white">$130<span class="text-sm text-slate-500 font-normal">/1.5 hrs</span></h2>
+                        <p id="selected-course" class="text-xs text-slate-400 mt-2">Fundamentos</p>
+                    </div>
+
+                    <div class="space-y-3 mb-6">
+                        <div id="price-fund" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer price-selected"
+                             onclick="selectPrice('fund')">
+                            <div>
+                                <p class="text-white font-bold text-sm">Fundamentos</p>
+                                <p class="text-[10px] text-slate-400 uppercase">Sesión 1.5 hrs</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-white">$130</span>
+                                <p class="text-[10px] text-slate-400">por sesión</p>
+                            </div>
+                        </div>
+
+                        <div id="price-gen" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer"
+                             onclick="selectPrice('gen')">
+                            <div>
+                                <p class="text-white font-bold text-sm">POO / Estructuras / Avanzada</p>
+                                <p class="text-[10px] text-slate-400 uppercase">Costo por hora</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-white">$140</span>
+                                <p class="text-[10px] text-slate-400">por hora</p>
+                            </div>
+                        </div>
+
+                        <div id="price-analysis" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer"
+                             onclick="selectPrice('analysis')">
+                            <div>
+                                <p class="text-white font-bold text-sm">Análisis de Datos</p>
+                                <p class="text-[10px] text-slate-400 uppercase">Bloque 2 hrs</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-white">$180</span>
+                                <p class="text-[10px] text-slate-400">por bloque</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-line my-4"></div>
+
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3 text-sm text-slate-300 mb-2">
+                            <i class="fa-solid fa-clock text-electric w-5"></i>
+                            <span>Horarios Flexibles (Urgentes)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-300 mb-2">
+                            <i class="fa-solid fa-file-pen text-electric w-5"></i>
+                            <span>Resolución de Exámenes Tipo</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-300">
+                            <i class="fa-brands fa-whatsapp text-electric w-5"></i>
+                            <span>Soporte directo por Chat</span>
+                        </div>
+                    </div>
+
+                    <button onclick="sendWhatsApp()" class="btn-glow block w-full text-white font-bold py-3 px-4 rounded-xl text-center transition-all uppercase text-xs tracking-widest">
+                        Agendar Asesoría
+                    </button>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/5">
+                    <div class="flex gap-1 text-yellow-500 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 italic mb-2">
+                        "Pensé que repetía Métodos Numéricos, pero entendí Runge-Kutta en una hora. Pasé el ETS con 8."
+                    </p>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase">- Alumno UPIITA</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl text-center">
+                    <h4 class="text-white font-bold text-sm mb-2">¿Necesitas Curso Completo?</h4>
+                    <p class="text-xs text-slate-400 mb-3">Si tienes varias materias o necesitas empezar de 0.</p>
+                    <a href="#" class="text-electric text-xs font-bold hover:underline decoration-electric underline-offset-4">Ver Paquetes de 10 hrs -></a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    
+    <footer class="mt-8 py-8 text-center border-t border-white/5">
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em]">© 2024 Quetzi Hack - Asesorías de Ingeniería</p>
+    </footer>
+
+    <script>
+        let currentPlan = '2003';
+        let selectedPrice = 'fund';
+        let selectedCourse = 'fund';
+
+        // Mapeo de cursos a precios
+        const coursePriceMap = {
+            '2003': {
+                'fund': 'fund',
+                'poo': 'gen',
+                'estructuras': 'gen'
+            },
+            '2024': {
+                'fund-poo': 'fund',
+                'avanzada': 'gen',
+                'analisis': 'analysis'
+            }
+        };
+
+        // Nombres de cursos para mostrar
+        const courseNames = {
+            'fund': 'Fundamentos',
+            'poo': 'Programación Orientada a Objetos',
+            'estructuras': 'Estructuras & Métodos Numéricos',
+            'fund-poo': 'Fundamentos & POO Unificada',
+            'avanzada': 'Programación Avanzada',
+            'analisis': 'Análisis de Datos'
+        };
+
+        // Nombres de precios para mostrar
+        const priceNames = {
+            'fund': { amount: '$130', time: '1.5 hrs', text: 'Fundamentos' },
+            'gen': { amount: '$140', time: 'hora', text: 'POO/Estructuras/Avanzada' },
+            'analysis': { amount: '$180', time: '2 hrs', text: 'Análisis de Datos' }
+        };
+
+        function switchPlan(plan) {
+            currentPlan = plan;
+            
+            // Actualizar botones de pestaña
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`btn-${plan}`).classList.add('active');
+            
+            // Mostrar contenido del plan seleccionado
+            document.querySelectorAll('[id^="content-"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById(`content-${plan}`).classList.remove('hidden');
+            
+            // Seleccionar el primer curso del plan
+            if (plan === '2003') {
+                selectCourse('fund', plan);
+            } else {
+                selectCourse('analisis', plan);
+            }
+        }
+
+        function selectCourse(course, plan) {
+            // Verificar que el curso pertenezca al plan actual
+            if (plan !== currentPlan) return;
+            
+            // Quitar selección de todos los cursos del plan actual
+            document.querySelectorAll(`#content-${plan} .course-card`).forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Aplicar selección al curso clickeado
+            const courseElement = document.getElementById(`course-${course}-${plan}`);
+            if (courseElement) {
+                courseElement.classList.add('selected');
+            }
+            
+            // Actualizar variables
+            selectedCourse = course;
+            
+            // Obtener el precio correspondiente al curso
+            const priceType = coursePriceMap[plan][course];
+            selectPrice(priceType, false); // false = no actualizar curso (ya lo hicimos)
+        }
+
+        function selectPrice(priceType, updateCourse = true) {
+            // Si el usuario selecciona Análisis de Datos pero está en Plan 2003, mostrar alerta
+            if (priceType === 'analysis' && currentPlan === '2003') {
+                alert('⚠️ Análisis de Datos solo está disponible en el Plan 2024');
+                return;
+            }
+            
+            // Actualizar variable
+            selectedPrice = priceType;
+            
+            // Quitar selección de todos los precios
+            document.querySelectorAll('.price-card').forEach(card => {
+                card.classList.remove('price-selected');
+            });
+            
+            // Aplicar selección al precio clickeado
+            const priceElement = document.getElementById(`price-${priceType}`);
+            if (priceElement) {
+                priceElement.classList.add('price-selected');
+            }
+            
+            // Actualizar información mostrada
+            const priceInfo = priceNames[priceType];
+            document.getElementById('selected-price').innerHTML = 
+                `${priceInfo.amount}<span class="text-sm text-slate-500 font-normal">/${priceInfo.time}</span>`;
+            document.getElementById('selected-course').textContent = priceInfo.text;
+            
+            // Si se está actualizando desde un clic en precio, buscar el curso correspondiente
+            if (updateCourse) {
+                updateCourseFromPrice(priceType);
+            }
+        }
+
+        function updateCourseFromPrice(priceType) {
+            // Buscar qué curso corresponde a este precio en el plan actual
+            const courses = coursePriceMap[currentPlan];
+            for (const [course, coursePrice] of Object.entries(courses)) {
+                if (coursePrice === priceType) {
+                    // Quitar selección de todos los cursos del plan actual
+                    document.querySelectorAll(`#content-${currentPlan} .course-card`).forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    
+                    // Aplicar selección al curso correspondiente
+                    const courseElement = document.getElementById(`course-${course}-${currentPlan}`);
+                    if (courseElement) {
+                        courseElement.classList.add('selected');
+                        selectedCourse = course;
+                    }
+                    break;
+                }
+            }
+        }
+
+        function sendWhatsApp() {
+            const phone = "525547062704";
+            
+            const planNames = {
+                '2003': 'Plan 2003 (Estructura tradicional - C++)',
+                '2024': 'Plan 2024 (Enfoque moderno - Python/C++)'
+            };
+            
+            const priceInfo = priceNames[selectedPrice];
+            
+            const message = `Hola Quetzi Hack! Me interesa agendar una asesoría de recuperación ETS:
+            
+• Plan: ${planNames[currentPlan]}
+• Curso: ${courseNames[selectedCourse]}
+• Tipo de asesoría: ${priceInfo.text}
+• Precio: ${priceInfo.amount} por ${priceInfo.time}
+
+Por favor, me puedes proporcionar más información sobre horarios disponibles.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Inicializar
+        window.onload = () => {
+            switchPlan('2003');
+            selectCourse('fund', '2003');
+        };
+    </script>
+</body>
+</html>
