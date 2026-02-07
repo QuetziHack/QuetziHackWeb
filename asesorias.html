@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asesorías ETS y Especiales | Quetzi Hack</title>
+    <title>ASESORÍAS para Recuperación ETS especiales | Quetzi Hack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -88,6 +88,25 @@
             color: #a0aec0;
             background: rgba(21, 15, 185, 0.08);
             backdrop-filter: blur(5px);
+        }
+
+        /* Badge para precios específicos */
+        .badge-fund {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.15);
+            color: #a7f3d0;
+        }
+        
+        .badge-gen {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.15);
+            color: #fde68a;
+        }
+        
+        .badge-long {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
         }
 
         /* Pestañas de plan */
@@ -232,11 +251,11 @@
         <header class="mb-12 reveal text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 mb-4">
                 <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Recuperación ETS</span>
+                <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Cupos Limitados</span>
             </div>
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
-                No dejes tu carrera <br>
-                <span class="text-electric neon-text">A la Suerte.</span>
+                <span class="text-electric neon-text">ASESORÍAS</span> para<br>
+                Recuperación <span class="text-electric neon-text">ETS especiales</span>
             </h1>
             <p class="selection-message text-slate-300 text-base md:text-lg max-w-2xl mx-auto py-3 px-6 rounded-full mb-6">
                 <i class="fas fa-info-circle mr-2 text-electric"></i>
@@ -272,7 +291,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">C++</span>
                                 <span class="badge">Primero</span>
-                                <span class="badge">1.5 horas</span>
+                                <span class="badge badge-fund">1.5 hrs - $130</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-3">Fundamentos de Programación</h3>
                             <ul class="text-sm text-slate-400 space-y-2 list-none">
@@ -294,7 +313,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">C++</span>
                                 <span class="badge">Segundo</span>
-                                <span class="badge">Por hora</span>
+                                <span class="badge badge-fund">1.5 hrs - $130</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-3">Programación Orientada a Objetos</h3>
                             <ul class="text-sm text-slate-400 space-y-2 list-none">
@@ -316,7 +335,7 @@
                             <div class="flex gap-2">
                                 <span class="badge">C++</span>
                                 <span class="badge">Tercero</span>
-                                <span class="badge">Por hora</span>
+                                <span class="badge badge-gen">1.5 hrs - $140</span>
                             </div>
                         </div>
                         <div class="text-sm text-slate-400">
@@ -340,7 +359,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">C++</span>
                                 <span class="badge">Cuarto</span>
-                                <span class="badge">Por hora</span>
+                                <span class="badge badge-long">2 hrs - $180</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                                 <i class="fa-solid fa-calculator text-purple-500"></i> Métodos Numéricos
@@ -380,7 +399,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">Python/C++</span>
                                 <span class="badge">Primero</span>
-                                <span class="badge">1.5 horas</span>
+                                <span class="badge badge-fund">1.5 hrs - $130</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-3">Fundamentos & POO Unificada</h3>
                             <ul class="text-sm text-slate-400 space-y-2 list-none">
@@ -402,7 +421,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">Avanzado</span>
                                 <span class="badge">Segundo</span>
-                                <span class="badge">Por hora</span>
+                                <span class="badge badge-gen">1.5 hrs - $140</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-3">Programación Avanzada</h3>
                             <ul class="text-sm text-slate-400 space-y-2 list-none">
@@ -424,7 +443,7 @@
                             <div class="flex gap-2 mb-4">
                                 <span class="badge">Python</span>
                                 <span class="badge">Tercero</span>
-                                <span class="badge">2 horas</span>
+                                <span class="badge badge-long">2 hrs - $180</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                                 <i class="fa-solid fa-chart-bar text-green-500"></i> Análisis de Datos
@@ -453,7 +472,7 @@
                 
                 <div class="glass-card p-6 rounded-3xl relative">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-electric text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_15px_#150fb9]">
-                        Tarifas Especiales
+                        Tarifas Especiales ETS
                     </div>
 
                     <div class="text-center mt-4 mb-6">
@@ -466,39 +485,39 @@
                         <div id="price-fund" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer price-selected"
                              onclick="selectPrice('fund')">
                             <div>
-                                <p class="text-white font-bold text-sm">Fundamentos</p>
+                                <p class="text-white font-bold text-sm">Fundamentos & POO básicos</p>
                                 <p class="text-[10px] text-slate-400 uppercase">Sesión 1.5 hrs</p>
-                                <p class="text-[10px] text-electric">Ambos planes</p>
+                                <p class="text-[10px] text-green-400 mt-1">Ambos planes primeros 2 cursos</p>
                             </div>
                             <div class="text-right">
                                 <span class="text-xl font-bold text-white">$130</span>
-                                <p class="text-[10px] text-slate-400">por sesión</p>
+                                <p class="text-[10px] text-slate-400">por 1.5 hrs</p>
                             </div>
                         </div>
 
                         <div id="price-gen" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer"
                              onclick="selectPrice('gen')">
                             <div>
-                                <p class="text-white font-bold text-sm">POO / Estructuras / Avanzada</p>
-                                <p class="text-[10px] text-slate-400 uppercase">Costo por hora</p>
-                                <p class="text-[10px] text-electric">+ Métodos Numéricos</p>
+                                <p class="text-white font-bold text-sm">Avanzada & Estructuras</p>
+                                <p class="text-[10px] text-slate-400 uppercase">Sesión 1.5 hrs</p>
+                                <p class="text-[10px] text-yellow-400 mt-1">Cursos intermedios</p>
                             </div>
                             <div class="text-right">
                                 <span class="text-xl font-bold text-white">$140</span>
-                                <p class="text-[10px] text-slate-400">por hora</p>
+                                <p class="text-[10px] text-slate-400">por 1.5 hrs</p>
                             </div>
                         </div>
 
-                        <div id="price-analysis" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer"
-                             onclick="selectPrice('analysis')">
+                        <div id="price-long" class="price-card glass-card flex justify-between items-center p-3 rounded-xl border border-white/5 transition-all cursor-pointer"
+                             onclick="selectPrice('long')">
                             <div>
-                                <p class="text-white font-bold text-sm">Análisis de Datos</p>
+                                <p class="text-white font-bold text-sm">Análisis & Métodos Numéricos</p>
                                 <p class="text-[10px] text-slate-400 uppercase">Bloque 2 hrs</p>
-                                <p class="text-[10px] text-electric">Solo Plan 2024</p>
+                                <p class="text-[10px] text-purple-400 mt-1">Cursos avanzados especiales</p>
                             </div>
                             <div class="text-right">
                                 <span class="text-xl font-bold text-white">$180</span>
-                                <p class="text-[10px] text-slate-400">por bloque</p>
+                                <p class="text-[10px] text-slate-400">por 2 hrs</p>
                             </div>
                         </div>
                     </div>
@@ -536,9 +555,11 @@
                 </div>
 
                 <div class="glass-card p-5 rounded-2xl text-center">
-                    <h4 class="text-white font-bold text-sm mb-2">¿Necesitas Curso Completo?</h4>
+                    <h4 class="text-white font-bold text-sm mb-2">¿Necesitas un Curso Personalizado?</h4>
                     <p class="text-xs text-slate-400 mb-3">Si tienes varias materias o necesitas empezar de 0.</p>
-                    <a href="#" class="text-electric text-xs font-bold hover:underline decoration-electric underline-offset-4">Ver Paquetes de 10 hrs -></a>
+                    <button onclick="sendWhatsAppCotizacion()" class="text-electric text-xs font-bold hover:underline decoration-electric underline-offset-4">
+                        Solicitar Cotización Personalizada ->
+                    </button>
                 </div>
 
             </div>
@@ -546,7 +567,7 @@
     </main>
     
     <footer class="mt-8 py-8 text-center border-t border-white/5">
-        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em]">© 2024 Quetzi Hack - Asesorías de Ingeniería</p>
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em]">© 2024 Quetzi Hack - ASESORÍAS para Recuperación ETS especiales</p>
     </footer>
 
     <script>
@@ -554,27 +575,27 @@
         let selectedPrice = 'fund';
         let selectedCourse = 'fund';
 
-        // Mapeo de cursos a precios - ACTUALIZADO
+        // Mapeo de cursos a precios - CORREGIDO FINALMENTE
         const coursePriceMap = {
             '2003': {
-                'fund': 'fund',           // Fundamentos
-                'poo': 'gen',            // POO
-                'estructuras': 'gen',    // Estructuras de Datos
-                'numericos': 'gen'       // Métodos Numéricos (¡NUEVO!)
+                'fund': 'fund',           // Fundamentos - 1.5 horas - $130
+                'poo': 'fund',            // POO - 1.5 horas - $130
+                'estructuras': 'gen',     // Estructuras de Datos - 1.5 horas - $140
+                'numericos': 'long'       // Métodos Numéricos - 2 horas - $180
             },
             '2024': {
-                'fund-poo': 'fund',      // Fundamentos & POO Unificada
-                'avanzada': 'gen',       // Programación Avanzada
-                'analisis': 'analysis'   // Análisis de Datos
+                'fund-poo': 'fund',       // Fundamentos & POO Unificada - 1.5 horas - $130
+                'avanzada': 'gen',        // Programación Avanzada - 1.5 horas - $140
+                'analisis': 'long'        // Análisis de Datos - 2 horas - $180
             }
         };
 
-        // Nombres de cursos para mostrar - ACTUALIZADO
+        // Nombres de cursos para mostrar
         const courseNames = {
             'fund': 'Fundamentos de Programación',
             'poo': 'Programación Orientada a Objetos',
             'estructuras': 'Estructuras de Datos',
-            'numericos': 'Métodos Numéricos',  // ¡NUEVO!
+            'numericos': 'Métodos Numéricos',
             'fund-poo': 'Fundamentos & POO Unificada',
             'avanzada': 'Programación Avanzada',
             'analisis': 'Análisis de Datos'
@@ -582,9 +603,9 @@
 
         // Nombres de precios para mostrar
         const priceNames = {
-            'fund': { amount: '$130', time: '1.5 hrs', text: 'Fundamentos' },
-            'gen': { amount: '$140', time: 'hora', text: 'POO/Estructuras/Avanzada/Métodos Numéricos' },
-            'analysis': { amount: '$180', time: '2 hrs', text: 'Análisis de Datos' }
+            'fund': { amount: '$130', time: '1.5 hrs', text: 'Fundamentos/POO básicos' },
+            'gen': { amount: '$140', time: '1.5 hrs', text: 'Programación Avanzada/Estructuras' },
+            'long': { amount: '$180', time: '2 hrs', text: 'Análisis de Datos/Métodos Numéricos' }
         };
 
         function switchPlan(plan) {
@@ -634,12 +655,6 @@
         }
 
         function selectPrice(priceType, updateCourse = true) {
-            // Si el usuario selecciona Análisis de Datos pero está en Plan 2003, mostrar alerta
-            if (priceType === 'analysis' && currentPlan === '2003') {
-                alert('⚠️ Análisis de Datos solo está disponible en el Plan 2024');
-                return;
-            }
-            
             // Actualizar variable
             selectedPrice = priceType;
             
@@ -658,13 +673,26 @@
             const priceInfo = priceNames[priceType];
             document.getElementById('selected-price').innerHTML = 
                 `${priceInfo.amount}<span class="text-sm text-slate-500 font-normal">/${priceInfo.time}</span>`;
-            document.getElementById('selected-course').textContent = 
-                `${priceInfo.text} (Plan ${currentPlan})`;
             
-            // Si se está actualizando desde un clic en precio, buscar el curso correspondiente
+            // Buscar el nombre del curso correspondiente para mostrar
+            let courseNameForDisplay = '';
             if (updateCourse) {
-                updateCourseFromPrice(priceType);
+                // Buscar el primer curso que coincida con este precio en el plan actual
+                const matchingCourses = Object.entries(coursePriceMap[currentPlan])
+                    .filter(([course, price]) => price === priceType);
+                if (matchingCourses.length > 0) {
+                    const [course] = matchingCourses[0];
+                    courseNameForDisplay = courseNames[course];
+                    // También seleccionar ese curso visualmente
+                    updateCourseFromPrice(priceType);
+                }
+            } else {
+                // Si no se está actualizando desde un clic en precio, usar el curso ya seleccionado
+                courseNameForDisplay = courseNames[selectedCourse];
             }
+            
+            document.getElementById('selected-course').textContent = 
+                `${courseNameForDisplay} (Plan ${currentPlan})`;
         }
 
         function updateCourseFromPrice(priceType) {
@@ -698,14 +726,29 @@
             
             const priceInfo = priceNames[selectedPrice];
             
-            const message = `Hola Quetzi Hack! Me interesa agendar una asesoría de recuperación ETS:
+            const message = `Hola Quetzi Hack! Me interesa agendar una asesoría de recuperación ETS especial:
             
 • Plan: ${planNames[currentPlan]}
 • Curso: ${courseNames[selectedCourse]}
-• Tipo de asesoría: ${priceInfo.text}
-• Precio: ${priceInfo.amount} por ${priceInfo.time}
+• Duración: ${priceInfo.time}
+• Precio: ${priceInfo.amount}
 
 Por favor, me puedes proporcionar más información sobre horarios disponibles.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendWhatsAppCotizacion() {
+            const phone = "525547062704";
+            
+            const message = `Hola Quetzi Hack! Me interesa solicitar una cotización para un curso personalizado de recuperación ETS.
+
+Necesito asesoría para:
+• [Especificar materias o temas que necesitas]
+• [Mencionar el plan de estudios: 2003 o 2024]
+• [Indicar si necesitas varias sesiones o un paquete completo]
+
+Por favor, me puedes proporcionar información sobre precios y disponibilidad para un curso personalizado.`;
 
             window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, '_blank');
         }
