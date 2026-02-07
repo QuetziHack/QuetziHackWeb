@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quetzi Hack | Formación para Ingenieros</title>
+    
+    <link rel="icon" type="image/png" href="./assets/logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -57,6 +60,16 @@
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
+        .card-rescue {
+            border: 1px solid rgba(21, 15, 185, 0.3);
+            background: linear-gradient(135deg, rgba(22, 22, 26, 0.9) 0%, rgba(21, 15, 185, 0.05) 100%);
+        }
+        
+        .card-rescue:hover {
+            border-color: #150fb9;
+            box-shadow: 0 0 30px rgba(21, 15, 185, 0.15);
+        }
+
         .card-highlight-mega {
             border: 1px solid rgba(34, 197, 94, 0.5);
             background: linear-gradient(135deg, rgba(22, 22, 26, 0.9) 0%, rgba(34, 197, 94, 0.08) 100%);
@@ -87,12 +100,9 @@
 </head>
 <body class="hero-gradient">
 
-    <!-- Navegación -->
     <nav class="flex justify-between items-center p-6 md:p-8 container mx-auto">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                <i class="fa-solid fa-terminal text-black font-bold"></i>
-            </div>
+        <div class="flex items-center gap-4">
+            <img src="./assets/logo.png" alt="Quetzi Hack Logo" class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]">
             <span class="text-lg md:text-xl font-bold tracking-tighter text-white uppercase">QUETZI <span class="text-green-500">HACK</span></span>
         </div>
         <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
@@ -102,7 +112,6 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
     <main class="container mx-auto px-6 pt-12 pb-20 text-center">
         <header class="max-w-4xl mx-auto reveal">
             <span class="mono text-green-400 font-bold text-[10px] md:text-xs uppercase mb-4 block tracking-[0.3em]">
@@ -120,7 +129,6 @@
             </a>
         </header>
 
-        <!-- Sección Cursos -->
         <section id="cursos" class="mt-24 reveal" style="animation-delay: 0.2s;">
             <div class="flex items-center gap-4 mb-12">
                 <h2 class="text-2xl md:text-3xl font-bold text-white whitespace-nowrap">Nuestras Rutas</h2>
@@ -129,7 +137,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
                 
-                <!-- Curso MEGA: Programación desde Cero -->
                 <div onclick="window.location.href='programacion-desde-0.html'" class="glass-card card-highlight-mega p-8 md:p-10 rounded-[2rem] text-left cursor-pointer group lg:col-span-2 relative">
                     <div class="badge-new uppercase mono">NUEVO / RECOMENDADO</div>
                     
@@ -161,7 +168,33 @@
                     </div>
                 </div>
 
-                <!-- Curso: Fundamentos -->
+                <div onclick="window.location.href='asesorias.html'" class="glass-card card-rescue p-8 rounded-[2rem] text-left cursor-pointer group relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fa-solid fa-life-ring text-8xl text-white"></i>
+                    </div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-4 bg-blue-600 rounded-xl text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+                            <i class="fa-solid fa-bolt-lightning text-2xl"></i>
+                        </div>
+                        <span class="mono text-[9px] px-2 py-1 border border-blue-500/30 rounded text-blue-400 font-bold animate-pulse">MODO RESCATE</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Asesorías ETS</h3>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">¿Examen a la vuelta de la esquina? Resolvemos tus dudas en tiempo récord. Planes 2003 y 2024.</p>
+                    
+                    <div class="space-y-2 mb-8 text-[11px] mono text-slate-300">
+                        <div class="flex justify-between border-b border-white/5 pb-1">
+                            <span>Fundamentos</span> <span class="text-blue-400">$130</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-1">
+                            <span>Estructuras/POO</span> <span class="text-blue-400">$140</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto flex items-center gap-2 text-blue-400 font-bold text-[10px] uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Salvar Semestre <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </div>
+                </div>
+
                 <div onclick="window.location.href='fundamentos.html'" class="glass-card p-8 rounded-[2rem] text-left cursor-pointer group">
                     <div class="flex justify-between items-start mb-8">
                         <div class="p-4 bg-white/5 rounded-xl text-green-500 group-hover:bg-green-500 group-hover:text-black transition-all">
@@ -176,7 +209,6 @@
                     </div>
                 </div>
 
-                <!-- Curso: Avanzada -->
                 <div onclick="window.location.href='avanzada.html'" class="glass-card p-8 rounded-[2rem] text-left cursor-pointer group border-blue-500/10">
                     <div class="flex justify-between items-start mb-8">
                         <div class="p-4 bg-white/5 rounded-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-black transition-all">
@@ -191,7 +223,6 @@
                     </div>
                 </div>
 
-                <!-- Comunidad -->
                 <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center justify-center text-center border-dashed border-white/10">
                     <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 text-green-500">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
@@ -201,24 +232,13 @@
                     <a href="https://api.whatsapp.com/send?phone=5215547062704" class="bg-white/5 hover:bg-white/10 text-white px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest transition-colors">Unirme</a>
                 </div>
 
-                <!-- Testimonio / Info Extra -->
-                <div class="glass-card p-8 rounded-[2rem] flex flex-col justify-center border-green-500/10 bg-green-500/[0.02]">
-                    <div class="flex gap-1 mb-4 text-[10px] text-green-500">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-white text-sm italic leading-relaxed mb-4">
-                        "Justo lo que necesitaba para entender las prácticas de programación de la escuela."
-                    </p>
-                    <span class="text-[10px] mono text-slate-500 uppercase tracking-widest">— Alumno ESIME</span>
-                </div>
-
             </div>
         </section>
     </main>
 
     <footer class="py-12 border-t border-white/5 text-center">
         <p class="text-slate-600 text-[9px] uppercase tracking-[0.5em] font-bold">
-            Quetzi Hack 2025 // Código que construye futuro
+            © 2026 <span class="text-slate-400">Quetzi Hack</span> // Código que construye futuro
         </p>
     </footer>
 
